@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LinMat3
 {
@@ -68,7 +64,7 @@ namespace LinMat3
             stepTable.CaseSensitive = false;
             
             //ask for input string
-            Console.WriteLine("Reading order: L -> R; Provide your word:");
+            Console.WriteLine("Accepted symbols: A, B, # (theta). \nReading order: L -> R; Provide your word:");
             string word = Console.ReadLine();
             Console.WriteLine(Environment.NewLine);
             
@@ -92,6 +88,7 @@ namespace LinMat3
                     //store information about the move using current symbol on the tape and the information from table of steps
                     string delta = (string)selection[0][tape[currentTapePosition].ToString()];
                     string[] deltaDetails = delta.Split(';');
+
                     //overwrite tape position
                     if (deltaDetails[0] != "-")
                         tape[currentTapePosition] = deltaDetails[0].ToCharArray()[0];
